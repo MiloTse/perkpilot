@@ -1,7 +1,15 @@
 spring:
   application:
     name: perkpilot-api-app
-
+  datasource:
+    url: jdbc:postgresql://localhost:5432/perkpilot
+    username: perkpilot
+    password: perkpilot_dev_password
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    #The migration runs automatically when the API is started
+    enabled: true
+    locations: classpath:db/migration
 server:
   port: 8080
 
@@ -10,3 +18,4 @@ management:
     web:
       exposure:
         include: health,info
+
