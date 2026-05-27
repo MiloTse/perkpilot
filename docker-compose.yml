@@ -12,7 +12,7 @@ services:
       POSTGRES_PASSWORD: perkpilot_dev_password
     # Windows native access port: Database port within the container
     ports:
-      - "5432:5432"
+      - "5433:5432"
     # Mount the database data to a named volume to avoid the situation where "data is lost when the container is deleted.
     volumes:
       - perkpilot_postgres_data:/var/lib/postgresql/data
