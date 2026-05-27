@@ -1,19 +1,19 @@
-#define which container service need to be run
+# Define which container service need to be run
 services:
-  #service name, logic name
+  # Service name, Logic name
   postgres:
     image: postgres:16
     container_name: perkpilot-postgres
     restart: unless-stopped
-    #initialization parameter
+    # Initialization parameter
     environment:
       POSTGRES_DB: perkpilot
       POSTGRES_USER: perkpilot
       POSTGRES_PASSWORD: perkpilot_dev_password
-    #Windows native access port: Database port within the container
+    # Windows native access port: Database port within the container
     ports:
       - "5432:5432"
-    #Mount the database data to a named volume to avoid the situation where "data is lost when the container is deleted.
+    # Mount the database data to a named volume to avoid the situation where "data is lost when the container is deleted.
     volumes:
       - perkpilot_postgres_data:/var/lib/postgresql/data
     healthcheck:
