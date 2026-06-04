@@ -48,7 +48,11 @@
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
         </dependency>
-
+        <!-- Flyway 10+：PostgreSQL 方言支持（没有它会报 Unsupported Database） -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+        </dependency>
         <!-- MyBatis-Plus（Boot 3 用 spring-boot3-starter） -->
         <dependency>
             <groupId>com.baomidou</groupId>
