@@ -1,0 +1,14 @@
+---
+description: PerkPilot must support AWS migration and local containerized dependencies (Postgres, Kafka)
+alwaysApply: true
+---
+
+# PerkPilot deployment & portability
+
+1. **AWS path (non-negotiable design intent)**: The codebase and configuration must allow moving to **Amazon Aurora PostgreSQL** for the relational store and **Amazon MSK** (or another **approved** Kafka service on AWS) **without rewriting business logic for “localhost-only” assumptions**. Use **Spring profiles / environment variables / secrets** for JDBC URLs, broker lists, and credentials.
+
+2. **Local path (recommended)**: Run **PostgreSQL** and **Kafka** via **Docker / Docker Compose** for repeatable developer setups and CI parity. The Spring Boot app may remain a **host JVM** in early iterations; **containerizing the app** is optional until an ADR chooses Elastic Beanstalk JAR vs container image on AWS.
+
+3. **Infra-as-code alignment**: When adding `infra/` or `docker-compose.yml`, keep **parity** with the architecture narrative in **`docs/architecture/system-design.md`** (update **Chinese and English** in the same change set per `docs/DOCUMENTATION-POLICY.md`).
+
+4. **Do not**: Hard-code hostnames, broker lists, or secrets for a single machine in application code; avoid coupling features to “bare metal Postgres only” or “single-node Kafka only” without an abstraction or config switch.

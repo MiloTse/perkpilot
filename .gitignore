@@ -1,0 +1,22 @@
+# Local-only CLRP notes (never commit)
+CLRP.MD
+~CLRP.MD.saved.bak
+LOCAL_PROGRESS.md
+
+# IDE
+.idea/
+*.iml
+
+# Java / Maven
+target/
+*.class
+
+# Node / frontend
+node_modules/
+dist/
+build/
+
+# Env / secrets
+.env
+.env.*
+!.env.example

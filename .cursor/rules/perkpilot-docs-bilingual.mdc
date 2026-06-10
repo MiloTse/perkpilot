@@ -1,0 +1,18 @@
+---
+description: PerkPilot docs must be updated in Chinese and English in the same change set
+alwaysApply: true
+---
+
+# PerkPilot bilingual documentation
+
+When you add or edit documentation under `docs/`:
+
+1. **Two languages, one change**: Update the **Chinese** file under `docs/` (excluding `docs/en/`) and its **English mirror** under `docs/en/` with the **same meaning** in the **same commit or pull request**. If you edit the English file first, update the Chinese file in the same change set.
+2. **Paths**: `docs/foo/bar.md` ↔ `docs/en/foo/bar.md`. Cross-links at the top of each pair must stay valid.
+3. **Metadata**: Keep version numbers, revision tables, and dates **aligned** across the pair (wording may differ; facts must not).
+4. **Exception**: `docs/DOCUMENTATION-POLICY.md` is **one bilingual file** (no `docs/en/` mirror). Edit both the Chinese and English sections inside that file when the policy changes.
+5. **New docs**: Creating a new `docs/**/*.md` requires creating the mirror under `docs/en/` immediately and adding language links at the top of both files.
+
+6. **Deployment portability** (see also **`.cursor/rules/perkpilot-deployment-portability.mdc`**): design for **AWS (Aurora, MSK/Kafka)** and **local Docker Compose** for Postgres/Kafka; no localhost-only coupling in app code.
+
+Full policy: `docs/DOCUMENTATION-POLICY.md`.
