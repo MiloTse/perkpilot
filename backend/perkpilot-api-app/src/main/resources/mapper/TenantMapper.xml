@@ -12,7 +12,9 @@
         <result property="updatedAt" column="updated_at"/>
     </resultMap>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    <insert id="insert" useGeneratedKeys="true"
+            keyProperty="id,createdAt,updatedAt"
+            keyColumn="id,created_at,updated_at">
         INSERT INTO tenant (code, name, status, created_at, updated_at)
         VALUES (#{code}, #{name}, #{status}, NOW(), NOW())
     </insert>
