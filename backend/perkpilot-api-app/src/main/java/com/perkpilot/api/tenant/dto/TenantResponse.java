@@ -1,5 +1,6 @@
 package com.perkpilot.api.tenant.dto;
 
+import com.perkpilot.api.tenant.TenantStatus;
 import java.time.OffsetDateTime;
 
 public class TenantResponse {
@@ -7,7 +8,7 @@ public class TenantResponse {
     private Long id;
     private String code;
     private String name;
-    private String status;
+    private TenantStatus status;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
 
@@ -35,11 +36,11 @@ public class TenantResponse {
         this.name = name;
     }
 
-    public String getStatus() {
+    public TenantStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TenantStatus status) {
         this.status = status;
     }
 

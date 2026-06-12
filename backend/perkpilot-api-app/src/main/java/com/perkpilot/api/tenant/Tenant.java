@@ -7,7 +7,7 @@ public class Tenant {
     private Long id;
     private String code;
     private String name;
-    private TenantStatus  status;
+    private TenantStatus status;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
 
